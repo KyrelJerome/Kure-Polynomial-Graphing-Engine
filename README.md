@@ -15,6 +15,6 @@ This program graphs rational functions up to a degree 4 denominator.
 
 
 ### Main Menu
-![Screenshot of main menu](docs/MenuScreenShot.png?raw=true "Main Menu")
-### Character Selection
-![Screenshot of main menu](docs/CharacterSelection.PNG?raw=true "Main Menu")
+![Screenshot of main menu](Docs/MainMenu.PNG?raw=true "Main Menu")
+### Graph of Equation
+![Screenshot of graph](Docs/Graph-of-Polynomial.PNG?raw=true "Graph")
