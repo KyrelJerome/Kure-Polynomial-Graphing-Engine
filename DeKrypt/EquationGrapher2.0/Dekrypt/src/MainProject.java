@@ -29,7 +29,7 @@ public class MainProject {
 			System.out.println("What kind of function would you like to input?");
 			System.out.println("1)  Polynomial    ex: f(x) = 2x^2 + 2x+1");
 			System.out.println("2)  Rational      ex: f(x) = (2x + 3)/x");
-			choice = Integer.parseInt(user.nextLine());
+			choice = getIntInput();
 			if(choice == 1)
 			{
 				System.out.println("----DEFINE THE POLYNOMIAL----");					
@@ -85,7 +85,7 @@ public class MainProject {
 			System.out.println("6) Calculate Zeroes and asymptotes of f(x)");
 			System.out.println("7) Tamper with the built-In calculator!");
 			System.out.println("8) Choose new equations");
-			choice = Integer.parseInt(user.nextLine());
+			choice = getIntInput();
 			System.out.println("");
 			if(choice == 1)
 			{
@@ -356,22 +356,17 @@ public class MainProject {
 			enterToContinue();
 			System.out.println("");
 
-			System.out.println("Calculating Data on Your inputted function of:");
+			System.out.println("Generated analysis of your inputted function of:");
 			System.out.println("f(x) = " + userfunction.printString());
 			System.out.println("");
 
-			System.out.println("Derivative");
-
-			
+			//Prints derivative and second derivative
 			userDerivative = kureEngine.getFunctionDerivative(userfunction);
 			System.out.print("f'(x) = ");
 			System.out.println(userDerivative.printString());
-
-			System.out.println("");
-			System.out.println("Second Derivative");
-			;
 			userDerivative2 = kureEngine.getFunctionDerivative(userDerivative);
 			System.out.print("f''(x) = ");
+			
 			System.out.println(userDerivative2.printString());
 			enterToContinue();
 			//Operation Selection
@@ -393,25 +388,25 @@ public class MainProject {
 		System.out.println("You will now enter a Standard Form Equation");
 		while(true)
 		{
-			System.out.println("What is the Degree of the function?");
-			choice = Integer.parseInt(user.nextLine());
+			System.out.println("What is the degree of the function?");
+			choice = getIntInput();
 			fx = new Equation(choice+1);
 			degree = choice+1;
 			break;
 		}
-		System.out.println("For Your function of degree (" + choice + "), please pick the following constant values");
+		System.out.println("For your function of degree (" + choice + "), please pick the following constant values.");
 
 		//Sort by termnumber
 		for(int i = 0; i <degree; i++)
 		{
-			System.out.println("Term ax^"+ i + " A:");
-			constantChoice = Double.parseDouble(user.nextLine());
+			System.out.println("Term ax^"+ i + " a:");
+			constantChoice = getDoubleInput();
 			Term currentTerm = new Term(constantChoice,i);
 			fx.setTerm(currentTerm, i);
 			System.out.println();	
 		}
 
-		System.out.print("The Equation is: " + fx.getString());
+		System.out.print("The equation is: " + fx.getString());
 		System.out.println("");
 		return fx;
 	}
@@ -419,6 +414,30 @@ public class MainProject {
 	{
 
 		window = new KurikWindow();
+	}
+	public static double getDoubleInput() {
+		while(true) {
+		try {
+			double x = Double.parseDouble(user.nextLine());
+			return x;
+		}
+		catch(Exception e)
+		{
+			System.out.println("Input must be a double. Try again:");
+		}
+		}
+	}
+	public static int getIntInput() {
+		while(true) {
+		try {
+			int x = Integer.parseInt(user.nextLine());
+			return x;
+		}
+		catch(Exception e)
+		{
+			System.out.println("Input must be an integer. Try again:");
+		}
+		}
 	}
 	public static void enterToContinue()
 	{

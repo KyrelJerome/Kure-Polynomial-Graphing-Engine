@@ -152,15 +152,14 @@ public class Calculator {
 		return resultant;
 	}
 	//TODO: FINISH 
-	public Boolean checkEqualEquations(Equation fx, Equation gx)
+	public boolean checkEqualEquations(Equation fx, Equation gx)
 	{
 		fx.groupLikeTerms();
 		fx.clean();
 		gx.groupLikeTerms();
 		gx.clean();
-		for(int i = 0; i < 0; i ++)
-		{
-
+		if(fx.getString().equals(gx.getString())) {
+			return true;
 		}
 		return false;
 	}

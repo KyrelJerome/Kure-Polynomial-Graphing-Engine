@@ -232,6 +232,7 @@ public class Equation {
 			{
 				if(terms[i].getPower()!= 0 && terms[i].getConstant()!= 0)
 				{
+					System.out.println("Derivationsasdfasdf");
 					double constant = terms[i].getPower()*terms[i].getConstant();
 					double power = terms[i].getPower() -1; //n - 1
 					derivative.setTerm(new Term(constant,power),i);

@@ -122,6 +122,7 @@ public class Graph {
 
 			x2 = getX(i +1);
 			y2 =	(int)getDrawnYI(i +1 );
+				/*
 				System.out.println();
 				System.out.println("**************************************NEW RUN**************************************");
 				System.out.println();
@@ -138,8 +139,9 @@ public class Graph {
 				System.out.println("view of Y: " + viewHeight);
 				System.out.println("drawing line #" + (i -0.5*width) + " at the point (" + x + " , " + y +" )");
 				System.out.println("drawing line2 #" + (i - 0.5*width) + " at the point (" + x2 + " , " + y2 +" )");
+			*/
 			graph.setColor(Color.BLUE);
-			if(vAsymptotes.length > 0)
+			if(vAsymptotes.length > 0 && (function.getType() == Function.Types.FULLRATIONAL || function.getType() == Function.Types.PARTIONALRATIONAL))
 			{
 				boolean isOnAsymptote = false;
 				for(int v = 0; v< vAsymptotes.length; v ++)
@@ -148,7 +150,7 @@ public class Graph {
 					if(yv >= i  &&  yv <= i+1)
 					{
 						isOnAsymptote = true;
-						System.out.println("is on asymptote, sorry kiddo");
+						//System.out.println("is on asymptote, sorry kiddo");
 					}
 				}
 				if(isOnAsymptote)
@@ -172,7 +174,7 @@ public class Graph {
 			}
 			else
 			{
-				System.out.println("One of the two points shouldnt be graphed, is off graph view");
+				//System.out.println("One of the two points shouldnt be graphed, is off graph view");
 			}
 
 		}
@@ -265,7 +267,7 @@ public class Graph {
 				}
 				else 
 				{
-					System.out.println("The oblique asymptote is not linear therefore and can not be graphed by KURE.");	
+					System.out.println("The oblique asymptote is not linear and therefore cannot be graphed by KURE.");	
 				}
 			}
 		}
